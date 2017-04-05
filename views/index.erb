@@ -1,19 +1,41 @@
-<!-- <h1>To Do</h1>
+<h1>To Do</h1>
 
-  <p>Here are all your tasks:</p>
+<!-- this form to create a list was previously located in list_form -->
+  <h3>Add here a new list:</h3>
 
-  Displaying each of our tasks use tags for our loops
-  <ul>
-    <% @tasks.each() do |task| %>
-      <li><%= task.description() %></li>
-    <% end %>
-  </ul>
+  <form action="/lists" method="post">
 
-  <p>Create a new task:</p>
+    <label for="name">Name of the list:</label>
+    <input id="name" name="name" type="text">
+
+    <button type="submit">Add List</button>
+  </form>
+
+<!-- this form to create a new task was previously located in list erb -->
+  <h3>Add a task to any list:</h3>
 
   <form action="/tasks" method="post">
-    <label for="description">Task Description</label>
+    <label for="list_id">Select a List</label>
+    <select id='list_id' name='list_id' type='text'>
+      <% @lists.each() do |list| %>
+        <option value="<%= list.id()%>"> <%= list.name() %> </option>
+      <% end %>
+    </select>
+
+    <label for="description">Description of the task:</label>
     <input id="description" name="description" type="text">
 
     <button type="submit">Add task</button>
-  </form> -->
+  </form>
+
+  <% if @lists.any?() %>
+    <p>Click on a list to see its tasks:</p>
+
+    <ul>
+      <% @lists.each do |list| %>
+      <li><a href="/lists/<%= list.id() %>"><%= list.name() %></a></li>
+      <% end %>
+    </ul>
+    <% else %>
+    <p>There are no lists yet!</p>
+    <% end %>

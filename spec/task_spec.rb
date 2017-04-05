@@ -1,18 +1,5 @@
 require('spec_helper')
 
-# require('rspec')
-# require('task')
-# require('pg')
-
-# DB = PG.connect({:dbname => 'to_do_test'})  # DB is called a constant. Used only for application-wide configuration settings like the name of your database.
-# # connecting to the right database (to_do_test) in this case.
-#
-# RSpec.configure do |config|         #same as clear loop
-#     config.after(:each) do
-#       DB.exec("DELETE FROM tasks *;")
-#     end
-  # end
-
 describe(Task) do
 
   describe(".all") do
