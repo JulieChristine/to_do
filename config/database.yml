@@ -1,0 +1,9 @@
+# configured one database for developing our app, and one for our testing.
+
+development:
+    adapter: postgresql
+    database: to_do_development
+
+  test:
+    adapter: postgresql
+    database: to_do_test
